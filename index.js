@@ -1,17 +1,10 @@
-function sortColors(nums) {
-  let left = 0;
-  let right = nums.length - 1;
-  let i = 0;
-  while (i <= right) {
-    if (nums[i] === 0) {
-      [nums[i], nums[left]] = [nums[left], nums[i]];
-      left++;
-      i++;
-    } else if (nums[i] === 2) {
-      [nums[i], nums[right]] = [nums[right], nums[i]];
-      right--;
-    } else {
-      i++;
+function minimumTotal(triangle) {
+  const n = triangle.length;
+  const dp = new Array(n + 1).fill(0);
+  for (let i = n - 1; i >= 0; i--) {
+    for (let j = 0; j <= i; j++) {
+      dp[j] = triangle[i][j] + Math.min(dp[j], dp[j + 1]);
     }
   }
+  return dp[0];
 }
