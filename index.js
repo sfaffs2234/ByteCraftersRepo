@@ -1,2 +1,9 @@
-const titleCase = (str) =>
-  str.toLowerCase().replace(/\b\w/g, (char) => char.toUpperCase());
+function squareDigits(num) {
+  return parseInt(
+    num
+      .toString()
+      .split("")
+      .map((digit) => digit ** 2)
+      .join(""),
+  );
+}
